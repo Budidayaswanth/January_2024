@@ -17,23 +17,23 @@ public class AssignmentQuestion {
          switch (day){
             case 1 :
                 System.out.println("Monday");
-                discount= (billAmount-0.25);
+                discount= (billAmount*0.25);
                 break;
             case 2:
                 System.out.println("TuesDay");
-                discount =(billAmount-2.0);
+                discount =(billAmount*0.20);
                 break;
             case 3:
                 System.out.println("Wednesday");
-                discount =(billAmount-1.5);
+                discount =(billAmount*0.15);
                 break;
             case 4,5:
                 System.out.println("Thursday,Friday");
-                discount=(billAmount-0.1);
+                discount=(billAmount*0.1);
                 break;
             case 6,7:
                 System.out.println("Saturday,Sunday");
-                discount =(billAmount-0.05);
+                discount =(billAmount*0.05);
                 break;
             default:
                 System.out.println("Invalid Day");

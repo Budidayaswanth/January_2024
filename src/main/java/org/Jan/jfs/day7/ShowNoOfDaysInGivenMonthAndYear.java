@@ -6,7 +6,7 @@ public class ShowNoOfDaysInGivenMonthAndYear {
     public static void main(String[] args) {
         int month =2;
         int year =2024;
-        System.out.println(dayIn(month,year));
+        System.out.println(dayIn(year,month));
     }
     public static int dayIn(int year,int month){
         return switch (month){
