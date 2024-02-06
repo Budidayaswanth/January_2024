@@ -4,7 +4,7 @@ public class ShowDayNameOfGivenDay {
     public static void main(String[] args) {
         int day =3;
         String res=getDayName(day);
-        System.out.println("The day Name for "+day+" is "+res);
+        System.out.println("The Day Name for "+day+" is "+res);
     }
     public static String getDayName(int day){
         String res =" ";
