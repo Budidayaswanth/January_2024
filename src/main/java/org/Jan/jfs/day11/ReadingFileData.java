@@ -14,5 +14,6 @@ public class ReadingFileData {
             data.append(name).append(",");
         }
         System.out.println(data.subSequence(0,data.length()-1));
+
     }
 }
