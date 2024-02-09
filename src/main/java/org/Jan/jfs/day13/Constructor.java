@@ -1,6 +1,5 @@
 package org.Jan.jfs.day13;
 
-import jdk.jfr.Category;
 
 class Games {
     private String name;
