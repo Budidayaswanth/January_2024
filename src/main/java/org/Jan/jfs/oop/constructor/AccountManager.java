@@ -14,7 +14,6 @@ public class AccountManager {
                 1006,Rajesh,95000
                 """;
         String[] line = data.split("\n");
-
         List<Account> account = new ArrayList<>();
         for (String lines : line) {
             String[] b = lines.split(",");
@@ -22,7 +21,6 @@ public class AccountManager {
             account.add(acc);
         }
         //System.out.println(account);
-
 
         for (Account s : account) {
             if (s.getBalance()>50000) {
