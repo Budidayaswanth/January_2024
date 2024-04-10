@@ -9,5 +9,4 @@ public class Player {
     private String role;
     private String teamName;
     private double amount;
-    private int count;
 }

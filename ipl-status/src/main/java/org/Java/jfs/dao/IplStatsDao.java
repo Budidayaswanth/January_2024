@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface IplStatsDao {
     List<String> getTeamNames();
-    List<String> getMaxPaidPlayersOfEachRole();
+    List<Player> getMaxPaidPlayersOfEachRole();
     List<Player> getMaxPaidPlayersOfEachRoleOfEachTeam();
     List<TeamStats> getTestStats();
     List<TeamStats> getMaxTopAmountSpentTeams();
