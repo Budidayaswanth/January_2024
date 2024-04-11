@@ -1,0 +1,15 @@
+package org.Java.di.scope;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+@Service
+@RequiredArgsConstructor
+public class BillingService {
+
+    private final AccountDao accountDao;
+    public void showInvoiceDetails(){
+        System.out.println("Account dao :"+accountDao);
+        System.out.println("Account Info : "+accountDao.getAccountInfo());
+    }
+}
