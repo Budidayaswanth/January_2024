@@ -12,65 +12,66 @@ public class WalletManager {
         ApplicationContext context =new AnnotationConfigApplicationContext(WalletManager.class);
         WalletAndTxnService service =context.getBean(WalletAndTxnService.class);
         Scanner sc = new Scanner(System.in);
-        while (true){
+        while (true) {
             System.out.println("1. Create Wallet");
-            System.out.println("2. Transfer Wallet");
+            System.out.println("2. Transfer Amount");
             System.out.println("3. Get Transactions");
-            System.out.println("4. Exist");
+            System.out.println("4. Exit");
 
-            int ch =sc.nextInt();
-            switch (ch){
+            int ch = sc.nextInt();
+            switch (ch) {
                 case 1:
                     try {
-                        System.out.println("Enter the Name :");
+                        System.out.println("Enter the name:");
                         String name = sc.next();
-                        System.out.println("Enter the Mobile : ");
+                        System.out.println("Enter the mobile:");
                         String mobile = sc.next();
-                        System.out.println("Enter the amount : ");
+                        System.out.println("Enter the amount:");
                         double amount = sc.nextDouble();
                         Wallet wallet = new Wallet();
                         wallet.setMobile(mobile);
                         wallet.setName(name);
                         wallet.setBalance(amount);
                         Wallet createdWallet = service.createWallet(wallet);
-                        System.out.println("Wallet created successfully with id :" + createdWallet.getId());
+                        System.out.println("Wallet created successfully with id: " + createdWallet.getId());
                         break;
-                    }catch (Exception e){
-                        System.out.println("While crating wallet :"+e.getMessage());
+                    } catch (Exception e) {
+                        System.out.println("While creating wallet: " + e.getMessage());
                     }
                 case 2:
                     try {
-                        System.out.println("Enter the from mobile");
-                        String fromMobile =sc.next();
-                        System.out.println("Enter the To Mobile ");
-                        String toMobile =sc.next();
-                        System.out.println("Enter the amount ");
+                        System.out.println("Enter the from mobile:");
+                        String fromMobile = sc.next();
+                        System.out.println("Enter the to mobile:");
+                        String toMobile = sc.next();
+                        System.out.println("Enter the amount:");
                         double amount = sc.nextDouble();
-                        service.transferAmount(fromMobile,toMobile,amount);
+                        service.transferAmount(fromMobile, toMobile, amount);
                         break;
-                    }catch (Exception e){
-                        System.out.println("While transferring the amount  : "+e.getMessage());
+                    } catch (Exception e) {
+                        System.out.println("While transferring amount: " + e.getMessage());
                     }
+                    break;
                 case 3:
                     try {
-                        System.out.println("Enter the Mobile");
-                        String mobile =sc.next();
-                        List<TransactionDetails> list =service.getTransactions(mobile);
-                        if(list.isEmpty()){
-                            System.out.println("No transactions found for the given mobile Number ");
+                        System.out.println("Enter the mobile:");
+                        String mobile = sc.next();
+                        List<TransactionDetails> list = service.getTransactions(mobile);
+                        if(list.isEmpty()) {
+                            System.out.println("No transactions found for the given mobile number");
                         }else {
-                            list.forEach(ele ->{
-                                String tnxType = "Credit";
+                            list.forEach(ele -> {
+                                String txnType = "CREDIT";
                                 if(ele.getFromMobile().equals(mobile)) {
-                                    tnxType = "DEBIT";
+                                    txnType = "DEBIT";
                                 }
-                                String data = String.format("Transaction Id: %s, From: %s, To: %s, Amount: %s, Type: %s, Date: %s", ele.getTransactionId(), ele.getFromMobile(), ele.getToMobile(), ele.getAmount(), tnxType, ele.getDate());
+                                String data = String.format("Transaction Id: %s, From: %s, To: %s, Amount: %s, Type: %s, Date: %s", ele.getTransactionId(), ele.getFromMobile(), ele.getToMobile(), ele.getAmount(), txnType, ele.getDate());
                                 System.out.println(data);
                             });
                         }
                         break;
-                    }catch (Exception e){
-                        System.out.println("While getting transactions: "+e.getMessage());
+                    }catch (Exception e) {
+                        System.out.println("While getting transactions: " + e.getMessage());
                     }
                 case 4:
                     System.exit(0);

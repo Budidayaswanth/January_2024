@@ -17,6 +17,9 @@ public class TransactionServices {
         transactions.add(transaction);
       return transaction;
     }
+
+
+
     public List<TransactionDetails> getAllTransactions(String mobile){
         List<TransactionDetails> list1 =new ArrayList<>();
         for (TransactionDetails transactionDetails : transactions){

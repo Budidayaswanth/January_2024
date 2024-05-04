@@ -13,6 +13,7 @@
         <module>core-jdbc</module>
         <module>ipl-status</module>
         <module>Spring-core</module>
+        <module>learning_spring-jdbc</module>
     </modules>
 
     <properties>
